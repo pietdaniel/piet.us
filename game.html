@@ -1,0 +1,424 @@
+<!--
+ __     ______  _    _       _____          __  __ ______      ______ ____  _____  
+ \ \   / / __ \| |  | |     / ____|   /\   |  \/  |  ____|    |  ____/ __ \|  __ \ 
+  \ \_/ / |  | | |  | |    | |       /  \  | \  / | |__       | |__ | |  | | |__) |
+   \   /| |  | | |  | |    | |      / /\ \ | |\/| |  __|      |  __|| |  | |  _  / 
+    | | | |__| | |__| |    | |____ / ____ \| |  | | |____     | |   | |__| | | \ \ 
+    |_| _\____/_\____/____  \_____/_/____\_\_|  |_|______|    |_|    \____/|_|  \_\
+       / ____|/ __ \ / __ \|  __ \ / ____|                                         
+      | |  __| |  | | |  | | |  | | (___                                           
+      | | |_ | |  | | |  | | |  | |\___ \                                          
+      | |__| | |__| | |__| | |__| |____) |                                         
+       \_____|\____/_\____/|_____/|_____/          _____  ______                   
+           | |  | |  ____|  __ \|  ____|     /\   |  __ \|  ____|                  
+           | |__| | |__  | |__) | |__       /  \  | |__) | |__                     
+           |  __  |  __| |  _  /|  __|     / /\ \ |  _  /|  __|                    
+           | |  | | |____| | \ \| |____   / ____ \| | \ \| |____                   
+  _______ _|_| _|_|______|_|__\_\______| /_/_  _\_\_|  \_\______|                  
+ |__   __| |  | |  ____|  / ____|/ __ \ / __ \|  __ \ / ____|                      
+    | |  | |__| | |__    | |  __| |  | | |  | | |  | | (___                        
+    | |  |  __  |  __|   | | |_ | |  | | |  | | |  | |\___ \                       
+    | |  | |  | | |____  | |__| | |__| | |__| | |__| |____) |                      
+    |_|  |_|  |_|______|  \_____|\____/ \____/|_____/|_____/                       
+
+                     J" .          `"            -c,
+                    j'(r "??cc,,_                   h  $
+                    3.P          `"""""=c,,_         ? `L        
+                  zP""??cc,__               "=,_      ? ".      L
+                .P           ""??cc,_           "=c_   $ ".     $       .
+               ,"                   `"h,_          `=c. $ ".     h      $
+             ,J'                        `"==c,        `"$h ".    $     .F
+           ,"         """===cc,,,            "?c,         "??h   `L    J
+          J'                                     "=c,_       `?.  ?.   P
+         J'                                          "c,       `?. h  j'
+       ,J??;;??$c,,_     `=cccc,                        "r        $$  $
+     c"`.`.`.`;;;;;;??c,._        "=c                  .  "h.      3 .f
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+ CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED CENSORED 
+    $`.`.`.`.`.`.`;;;;;;9`.`.`.`.`.`.`.``h                         `$
+     L.`.`.`.`.``;;;;;;;?`.`.`.`.`.`.`.`.`$                   `,    $
+     `L`.`.`.`.`;;;j;;;;;L.`.`.`.`.`.`.`.`.?.                   ",  ?.
+       ?i`.`.`.;;;j;;;;;;?;`.`.`.`.`.`.`.`.`.h                   `,  L
+        `?i..`,;;$;;';;;.`.h.`.`.`.`.`.`.`.`.`?c                  $   h
+           "?h$??F.``;;;.`.;$c.`.`.`.`.`.`.`.`.`$L                `h  J
+                $;`.`;;`.`.`;;?hy_.`.`.`.`.`.`,c$$h.               ?.j'
+               .$`.`.;;`.`.`.;;;;"??$ccyyyccJ??;;;$3c               $$
+               j'`.`.;.`.`.`.`.;;;;;;;;;;;;;;;;;;;;$`h              `$
+              .$.`.`.`.`.`.`.`.``;;;;;;;;;;;;;;.`;;;$ "c             $
+              j'.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;$. "c           $-
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.;;;$.  $L,        $
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;$  `h "h     .$  ,P
+              F`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.;;;h  `h  "h   ;F. $
+              C`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;L  `r   $, $ ?,f
+              h`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.``..`.;;9r  ?   `fcF  $
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.;;;$   L   $   j'
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.;;;;$  $   $   J'
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;;;?h `cc='  J'
+              $`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.,;;;;;;9.J     $
+              ?`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`,;;;;;;;$$'     $
+              `h.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.,;;;;;;;9"       $
+               $.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.;;;;;;;;9         "h
+               $.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;;;;;;;$          c????c
+               j.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`.`;;;;;;;;;9        .P
+-->
+<!DOCTYPE html>
+<html>
+<head>
+<script type="text/javascript" charse="utf-8" src="script.js"></script> 
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<style>
+	html, body { 
+		width:90%; 
+		height: 90%;
+		background: #000;
+		color:#aaa;
+	}
+	body {
+		overflow: hidden;
+	}
+	textarea {
+		background: #000;
+		color: #aaa;
+		overflow: auto;
+		border: none;
+		resize: none;
+	}
+	textarea:focus {
+		outline-width: 0;
+	}
+	#canvas {
+		position: absolute;
+		top:220px;
+		left:10px;
+		
+	}
+	canvas { 
+		display:block; 
+	}
+</style>
+<script>
+console.log("Welcome to piet.us!")
+var score = 0;
+var hits = 0;
+
+function redirect() {
+	window.location.replace("http://piet.us");
+}
+
+
+function ranrange(range,x) {
+	x = typeof x !== 'undefined' ? x : 0;
+	return Math.floor(range*Math.random())+1+x;
+}
+
+
+function incColor1(string) {
+	if (new Date().getTime()%29==0) {
+		string = string.substr(1,6)
+		q = (parseInt(string,16)-4096).toString(16);
+		d = q.length-6;
+		for (var i=0;i<d;i++) {
+			q=0+q;
+		}
+		q = '#'+q;
+		return q;
+	}else {
+		return string;
+	}
+}
+
+function dist(x1,x2,y1,y2) {
+	var xs = 0;
+	var ys = 0;
+
+	xs = x2 - x1;
+	xs = xs * xs;
+
+	ys = y2 -y1;
+	ys = ys * ys;
+
+	return Math.sqrt( xs + ys );
+
+}
+
+function ball(x,y,vx,vy)
+{
+	this.x  = x;
+	this.y  = y;
+	this.vx = vx;
+	this.vy = vy;
+	this.ctx = "passed";
+	this.width  = 0;
+	this.height = 0;
+	this.birthday = new Date().getTime();
+	this.color = "#FF0000";
+	this.size=5;
+
+	this.move = move;
+	this.push = push;
+	this.draw = draw;
+	this.gravitate = gravitate;
+	this.walls = walls;
+	this.print = print;
+	this.friction = friction;
+	this.breed = breed;
+	this.puff = puff;
+	this.age = age;
+	this.flash = flash;
+
+
+	function move(mx,my) {
+		this.age();
+		this.gravitate(mx,my);
+		this.friction(1);
+		this.walls();
+		this.x+=this.vx;
+		this.y+=this.vy;
+		this.flash(mx,my);
+	}
+
+	function age() {
+		var age = (new Date().getTime() - this.birthday)/200;
+		if (age>50) {
+			this.color = "#00FF00";
+			this.puff(1);
+			this.size+=.1;
+			this.vx/=1.1;
+			this.vy/=1.1;
+		}else {
+			this.color = incColor1(this.color);
+			this.puff(5)
+		}
+	}
+
+	function push(arg, val) {
+		if (arg=="x") {
+			this.vx+=val;
+		}else if (arg=="y") {
+			this.vy+=val;
+		}
+	}
+
+	function draw() {
+		this.ctx.fillStyle="#666666";
+		this.ctx.fillRect(this.x-this.size*.1,this.y-this.size*.1,this.size*1.2,this.size*1.2);
+		this.ctx.fillRect(this.x-1,this.y-1,this.size+2,this.size+2);
+		this.ctx.fillStyle="#000000";
+		this.ctx.fillRect(this.x-1,this.y-1,this.size+2,this.size+2);
+		this.ctx.fillStyle=this.color;
+		this.ctx.fillRect(this.x,this.y,this.size,this.size);
+		this.ctx.fillStyle="#ffffff";
+		this.ctx.fillRect(this.x+this.vx,this.y+this.vy,1,1);
+	}
+
+	function flash(mx,my) {
+		if (dist(this.x+(this.size/2),mx,this.y+(this.size/2),my)<=this.size*1.2) {
+			this.ctx.fillStyle="#FF0000";
+			this.ctx.fillRect(0,0,this.width,this.height);
+			hits++;
+		}
+
+	}
+
+	function gravitate(ox,oy) {
+		if ((new Date().getTime())%2==0) {
+			this.vx -= Math.floor((this.x - ox))/50;
+			this.vy -= Math.floor((this.y - oy))/50;
+		}
+	}
+
+	function friction(val) {
+		this.vx = Math.floor(this.vx*.9);
+		this.vy = Math.floor(this.vy*.9);
+	}
+
+	function puff(amnt) {
+		this.vx+=ranrange(amnt*2,-amnt);
+		this.vy+=ranrange(amnt*2,-amnt);
+	}
+
+	function walls() {
+			if (this.x<0 || this.x>this.width) {
+				this.x= (this.x<0) ? 1 : this.width-1;
+				this.vx*=-1;
+			}
+			if (this.y<0 || this.y>this.height) {
+				this.y= (this.y<0) ? 1 : this.height-1;
+				this.vx*=-1;
+			}
+	}
+
+	function print() {
+		if (new Date().getTime()%21==0) {
+			console.log(this);
+		}
+	}
+
+	function breed(offset) {
+		var baby = new ball();
+		baby.x = this.x+ranrange(offset*2, -offset);
+		baby.y = this.y+ranrange(offset*2, -offset);
+		baby.vx = this.vx;
+		baby.vy = this.vy;
+		baby.ctx = this.ctx;
+		baby.width = this.width;
+		baby.height = this.height;
+		score++;
+		return baby;
+	}
+
+}
+
+function refresh(ctx,can) {
+	ctx.fillStyle="#000000";
+	ctx.fillRect(0,0,can.width,can.height);
+}
+
+
+$(document).ready(function() {
+	$("#welcome").attr("disabled", "disabled");
+	var canvas=document.getElementById("canvas");
+	var canvas_delta_top  = 220;
+	var canvas_delta_left = 10;
+	var ctx=canvas.getContext("2d");
+	var mx = 0;
+	var my = 0;
+	var mouse_in = false;
+
+	var a_Ball = new ball();
+	a_Ball.x  = 100;
+	a_Ball.y  = 100;
+	a_Ball.vx = 0;
+	a_Ball.vy = 0;
+	a_Ball.ctx = ctx;
+	a_Ball.width  = canvas.width;
+	a_Ball.height = canvas.height;
+
+	var balls = new Array();
+	for (var i = 0; i < 1; i++) {
+		balls[i]=a_Ball.breed(200,a_Ball);
+	}
+
+
+	function mouse_leave() { mouse_in = false; }
+	function mouse_enter() { mouse_in = true;  }
+
+	window.addEventListener('resize', resize, false);
+
+	function resize() {
+	        canvas.width = window.innerWidth - 20;
+	        canvas.height = window.innerHeight - 240;
+	        a_Ball.width  = canvas.width;
+			a_Ball.height = canvas.height;
+			for (b in balls) {
+				balls[b].width  = canvas.width;
+				balls[b].height = canvas.height;
+			}
+	} resize();
+
+
+	function draw() {
+		$( "body" ).mousemove(function( event ) {
+			pageCoords = "( " + event.pageX + ", " + event.pageY + " )";
+			clientCoords = "( " + event.clientX + ", " + event.clientY + " )";
+			mx = event.pageX - canvas_delta_left;
+			my = event.pageY - canvas_delta_top;
+		});
+		
+		if (mouse_in) {
+			refresh(ctx,canvas);
+			// if (new Date().getTime()%2==0) {
+				balls.push(balls[balls.length-1].breed(10,balls[ball.length-1]));
+			// }
+	
+				for (b in balls) {
+					balls[b].draw();
+					balls[b].move(mx,my);
+			}
+		}
+
+		if (hits>0) {
+			$('#score').html("score: "+score);
+			$('#hits').html("hits: "+hits);
+			$('#welcome').hide();
+			$('#togame').show();
+		}else {
+			$('#lost').hide();
+			$('#togame').hide();
+		}
+		if (hits>100) {
+			$('#lost').show();
+			$('#togame').hide();
+			setTimeout(function() {
+				redirect();
+			}, 5000);
+		}
+
+		setTimeout(draw,30); // call doMove() in 20 msec
+	}
+	draw();
+
+	$("canvas").mouseenter(function(event){ mouse_enter(); });
+	$("canvas").mouseleave(function(event){ mouse_leave(); });
+	$("html").mouseleave(function(event){ mouse_leave(); });
+	$("body").mouseleave(function(event){ mouse_leave(); });
+
+});
+</script>
+</head>
+<body>
+	<span id='score' style='float:right;padding-left:10px;'></span>
+	<span id='hits' style='float:right'></span>
+	<canvas id="canvas">
+		segmentation fault
+	</canvas>
+	<center>
+		<textarea id="welcome" rows="13" cols="106" z-index=0>
+                                             _..._       .-'''-.                                         
+                                 .---.    .-'_..._''.   '   _    \                                       
+                   __.....__     |   |  .' .'      '.\/   /` '.   \  __  __   ___         __.....__      
+       _     _ .-''         '.   |   | / .'          .   |     \  ' |  |/  `.'   `.   .-''         '.    
+ /\    \\   ///     .-''"'-.  `. |   |. '            |   '      |  '|   .-.  .-.   ' /     .-''"'-.  `.  
+ `\\  //\\ ///     /________\   \|   || |            \    \     / / |  |  |  |  |  |/     /________\   \ 
+   \`//  \'/ |                  ||   || |             `.   ` ..' /  |  |  |  |  |  ||                  | 
+    \|   |/  \    .-------------'|   |. '                '-...-'`   |  |  |  |  |  |\    .-------------' 
+     '        \    '-.____...---.|   | \ '.          .              |  |  |  |  |  | \    '-.____...---. 
+               `.             .' |   |  '. `._____.-'/              |__|  |__|  |__|  `.             .'  
+                 `''-...... -'   '---'    `-.______ /                                   `''-...... -'    
+                                                   `                                                     
+		</textarea>
+		<textarea id="togame" rows="13" cols="120" z-index=0>
+           . -''' -.                                                                   
+         /   /` '.   \                             __  __   ___        __.....__      
+        .   |     \  '             .--./)         |  |/  `.'   `.  .-''         '.    
+     .| |   '      |  '           /.''\\          |   .-.  .-.   '/     .-''"'-.  `.  
+   .' |_\    \     / /           | |  | |     __  |  |  |  |  |  /     /________\   \ 
+ .'     |`.   ` ..' /             \`-' /   .:--.'.|  |  |  |  |  |                  | 
+'--.  .-'   '-...-'`              /("'`   / |   \ |  |  |  |  |  \    .-------------' 
+   |  |                           \ '---. `" __ | |  |  |  |  |  |\    '-.____...---. 
+   |  |                            /'""'.\ .'.''| |__|  |__|  |__| `.             .'  
+   |  '.'                         ||     |/ /   | |_                 `''-...... -'    
+   |   /                          \'. __//\ \._,\ '/                                  
+   `'-'                            `'---'  `--'  `"                                   
+		</textarea>
+		<textarea id="lost" rows="13" cols="120" z-index=0>
+         _______            _       _______ _______ _______ 
+|\     /(  ___  )\     /|  ( \     (  ___  |  ____ (  ____ \
+( \   / ) (   ) | )   ( |  | (     | (   ) | (    \/ (    \/
+ \ (_) /| |   | | |   | |  | |     | |   | | (_____| (__    
+  \   / | |   | | |   | |  | |     | |   | (_____  )  __)   
+   ) (  | |   | | |   | |  | |     | |   | |     ) | (      
+   | |  | (___) | (___) |  | (____/\ (___) /\____) | (____/\
+   \_/  (_______|_______)  (_______(_______)_______|_______/
+                                                            
+		</textarea>
+	</center>
+	
+</body>
+</html>
+
+

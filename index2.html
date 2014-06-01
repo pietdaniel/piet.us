@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hey Friends!</title>
+<link rel="icon" 
+      type="image/jpg" 
+      href="favicon.jpg">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="js/countdown.js"></script>
+<style>
+    html, body { 
+        width:90%; 
+        height: 90%;
+        background: #EEE;
+    }
+    body {
+        overflow: hidden;
+    }
+    a:link {
+        color:#555;
+        text-decoration:none;
+    }
+    a:visited {
+        color:#AAA;
+        text-decoration:none;
+    }
+    a:hover {
+        color: #fff;
+    }
+</style>
+<script>
+var qq=Math.floor(Math.random()*10%4);
+console.log("Welcome to piet.us!")
+$(document).ready(function() {
+  $('#hello').hide();
+  $('#code').hide()
+  $('#music').hide()
+  $('#school').hide()
+  $('#countdown').hide();
+  $('#weird').hide()
+
+  $('#countdown').aTime({
+    "font-size" : "16px",
+  });
+
+    $("#hello").fadeIn("slow",function(){
+        $("#code").fadeIn(1200, function() {
+            $("#music").fadeIn(1800,function() {
+                $("#school").fadeIn(2400,function() {
+                    $("#countdown").fadeIn(1200);
+                    $("#weird").delay(10000).fadeIn(14800);
+          if (qq==0) {
+            $("#link").attr("href",'http://piet.us/game.html')
+          }
+          if (qq==1) {
+            $("#link").attr("href",'readthesource.html')
+          }
+          if (qq==2) {
+            $("#link").attr("href",'http://piet.us/randomwalk/')
+          }
+          if (qq==3) {
+            var qqq = Math.floor((Math.random()*100)%17+1)
+            $("#link").attr("href","glitched/"+qqq+".png") 
+          }
+                })
+            })
+        })
+    });
+});
+</script>
+</head>
+<body>
+<span id="hello">Hello World!</span>
+<br><br>
+<span id="code">My name is <a href="dpiet.pdf">Daniel Piet</a> and I write <a href="https://github.com/pietdaniel">code</a>.</span>
+<br><br>
+<span id="music">I also make <a href="http://www.youtube.com/embed/vmXy0RPZ_iE?list=PLJ8G9SPsg77EMxPb0E8gEZTuLkD7Avo7C">music</a> in my spare time.</a></span>
+<br><br>
+<span id="school">At the moment I'm in <a href="http://ccs.neu.edu">school</a> but will be done in <span id='countdown'></span></span>
+<br><br>
+<span id="weird">Sometimes I get <a id="link" href="http://pietdaniel.tumblr.com">weird</a></span>
+</body>
+</html>
+
+
+

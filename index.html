@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Hey Friends!</title>
+<link rel="icon" 
+      type="image/jpg" 
+      href="favicon.jpg">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js" ></script>
+<script src="countdown.js"></script>
+<style>
+    body {
+      height: 0;
+    }
+    a:link {
+        color:#555;
+        text-decoration:none;
+    }
+    a:visited {
+        color:#AAA;
+        text-decoration:none;
+    }
+    a:hover {
+        color: #fff;
+    }
+    .revealable {
+      float:left;
+      position:absolute;
+      margin-left:10px;
+      margin-top:10px;
+      z-index: 100;
+    }
+    #container {
+      top:0px;
+      left:0px;
+      position: absolute;
+      z-index: -1;
+      height: 100%;
+    }
+</style>
+<script src="ThreeSound.js"></script>
+<script src="three.min.js"></script>
+<script src="OrbitControls.js"></script>
+<script src="Mirror.js"></script>
+<script src="WaterShader.js"></script>
+<script src="Detector.js"></script>
+<script src="stats.min.js"></script>
+</head>
+  <body>
+      <span class='revealable' id="hello">Hello World!</span>
+      <br><br>
+      <span class='revealable' id="code">My name is <a href="dpiet.pdf">Daniel Piet</a> and I write <a href="https://github.com/pietdaniel">code</a>.</span>
+      <br><br>
+      <span class='revealable' id="music">I also make <a href="http://www.youtube.com/embed/vmXy0RPZ_iE?list=PLJ8G9SPsg77EMxPb0E8gEZTuLkD7Avo7C">music</a> in my spare time.</a></span>
+      <br><br>
+      <span class='revealable' id="school">At the moment I'm in <a href="http://ccs.neu.edu">school</a> but will be done in <span id='countdown'></span></span>
+      <br><br>
+      <span class='revealable' id="weird">Sometimes I get <a id="link" href="http://pietdaniel.tumblr.com">weird</a></span>
+      <div id='container'></div>
+    <script src="sunset.js"></script>
+    <audio style="display:none" controls preload="auto" onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)" autobuffer>
+      <source src="DoomAndSilence.mp3" />
+      <source src="DoomAndSilence.ogg" />
+    </audio>
+  </body>
+</html>
+
+
+

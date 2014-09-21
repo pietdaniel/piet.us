@@ -153,7 +153,7 @@ $(document).ready(function() {
                       $("#link").attr("href",'http://piet.us/game.html')
                     }
                     if (linkSelector==1) {
-                      $("#link").attr("href",'readthesource.html')
+                      $("#link").attr("href",'http://piet.us/note/')
                     }
                     if (linkSelector==2) {
                       $("#link").attr("href",'http://piet.us/randomwalk/')

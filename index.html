@@ -2,6 +2,7 @@
 <html>
 <head>
 <title>Hey Friends!</title>
+<meta charset="UTF-8">
 <link rel="icon" 
       type="image/jpg" 
       href="favicon.jpg">
@@ -14,6 +15,7 @@
 <script src="js/WaterShader.js"></script>
 <script src="js/Detector.js"></script>
 <script src="js/stats.min.js"></script>
+
 <style>
     body {
       height: 0;
@@ -44,23 +46,31 @@
       height: 100%;
     }
 </style>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-53289127-1', 'auto');
+  ga('send', 'pageview');
+</script>
 </head>
   <body>
       <span class='revealable' id="hello">Hello World!</span>
       <br><br>
-      <span class='revealable' id="code">My name is <a href="dpiet.pdf">Daniel Piet</a> and I write <a href="https://github.com/pietdaniel">code</a>.</span>
+      <span class='revealable' id="code">My name is Daniel Piet and I write <a href="https://github.com/pietdaniel">code</a>.</span>
       <br><br>
       <span class='revealable' id="music">I also make <a href="http://www.youtube.com/embed/vmXy0RPZ_iE?list=PLJ8G9SPsg77EMxPb0E8gEZTuLkD7Avo7C">music</a> in my spare time.</a></span>
       <br><br>
       <span class='revealable' id="school">At the moment I'm in <a href="http://ccs.neu.edu">school</a> but will be done in <span id='countdown'></span></span>
       <br><br>
-      <span class='revealable' id="weird">Sometimes I get <a id="link" href="http://pietdaniel.tumblr.com">weird</a></span>
+      <span class='revealable' id="weird"><a id="link" href="http://pietdaniel.tumblr.com">weird</a></span>
       <div id='container'></div>
     <script src="js/sunset.js"></script>
-    <audio style="display:none" controls preload="auto" onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)" autobuffer>
-      <source src="DoomAndSilence.mp3" />
-      <source src="DoomAndSilence.ogg" />
-    </audio>
+    <!-- <audio style="display:none" controls preload="auto" onloadeddata="var audioPlayer = this; setTimeout(function() { audioPlayer.play(); }, 4000)" autobuffer>
+      <source src="audio/DoomAndSilence.mp3" />
+      <source src="audio/DoomAndSilence.ogg" />
+    </audio> -->
   </body>
 </html>
 

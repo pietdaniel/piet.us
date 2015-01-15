@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="hljs/styles/default.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="hljs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+     .hljs {
+       padding-left: 10px;
+       padding-bottom: 10px;
+       padding-top: 0px;
+       margin-top: -5px;
+     }
+     .container {
+       padding: 10px 30px 10px 30px;
+     }
+     a:visited {
+       color: #777;
+     }
+     a:hover {
+       color: #f00;
+     }
+     a {
+       color: #222;
+       text-decoration: none;
+     }
+     body {
+      background: #f0f0f0;
+     }
+     #header {
+      width: 100%;
+      border: none;
+      top: 0px;
+      left: 0px;
+      height: 200px;
+      position: fixed;
+     }
+     #space {
+      height:200px;
+     }
+    </style>
+  </head>
+  <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $('#header').contents().find('span').remove()
+      }, 400);
+    });
+  </script>
+  <body>
+    <iframe id="header" src="http://piet.us/"></iframe>
+    <div id="space"></div>
+    <div class="container">
+<h1>Turning 78 images into ASCII art </h1>
+
+<p>Recently I needed to turn a ton of images into ascii art, this articles documents the process.</p>
+
+<p>I started this project because I couldn't find a nice ascii tarot deck. In so, I had to make one.</p>
+
+<h2>First get the images</h2>
+
+<p>Shout out to @jeremytarling on this one. He made a ruby app to draw tarot cards entitled 
+<a href="https://github.com/jeremytarling/ruby-tarot">ruby-tarot</a>
+It was nice to just clone the repository and get an organized directory of the 
+<a href="http://en.wikipedia.org/wiki/Rider-Waite_tarot_deck">Rider-Waite</a> deck.
+The images had to be manipulated before I could process them into ascii art. Simple stuff like remove the color scale, increase contrast, and resize the image. This lead to an amazing discovery.</p>
+
+<h2>Gimp has scheme</h2>
+
+<p><code>
+Filters-&gt;Script-fu-&gt;Console
+</code></pre>
+
+<p>The browse function has documentation!</p>
+
+<p>So, we need to be able to identify the image. This proved rather difficult. The image list is a pair of vectors in a list, which is odd but you can extract the image from the image list function like this:</p>
+
+<pre><code class="lisp">
+(define image (car (vector-&gt;list (cadr (gimp-image-list)))))
+</code></pre>
+
+<p>Now we can use the image variable in our scale functions.</p>
+
+<pre><code class="lisp">
+(gimp-image-scale image 150 261)
+</code></pre>
+
+<p>Next step is to change the saturation all the way down, but this takes a drawable. The following invocation will pull the appropriate drawable from our previously defined image.</p>
+
+<pre><code class="lisp">
+(define drawable (car (gimp-image-get-active-drawable image)))
+</code></pre>
+
+<p>And with the drawable we now crank down the saturation.</p>
+
+<pre><code class="lisp">
+(gimp-hue-saturation drawable 0 0 0 -100)
+</code></pre>
+
+<p>We can use the drawable to set the brightness and contrast to the necessary values.</p>
+
+<pre><code class="lisp">
+(gimp-brightness-contrast drawable 60 127)
+</code></pre>
+
+<p>Here is the save method of the image. It takes a drawable, filename, some parameters, a little something extra, and more parameters that dont matter that much. You can find the docs on this in the browse function of 
+<a href="https://www.destroyallsoftware.com/talks/the-birth-and-death-of-javascript">the GIMP</a>.
+Im just overwriting the files explicitly so the filename will be the image's filename. </p>
+
+<pre><code class="lisp">
+(define filename (car (gimp-image-get-filename image)))
+(file-jpeg-save 1 image drawable filename filename 1 1 1 1 "love" 1 1 0 0)
+</code></pre>
+
+<p>And of course everyone knows appropriate functions should have their caddr cddddr cddddr always be "love"</p>
+
+<pre><code class="lisp">
+(caddr (cddddr (cddddr `(file-jpeg-save 1 image drawable filename filename 1 1 1 1 "love" 1 1 0 0)))) =&gt; "love"
+</code></pre>
+
+<p>But, I have a ton of files to run this against, so I need to load them as well. Heres the load method that stores the return image in the variable image.</p>
+
+<pre><code class="lisp">
+(define image (car (file-jpeg-load 1 filename filename)))
+</code></pre>
+
+<p>Reading the 
+<a href="http://www.alphageeksinc.com/tinyscheme/doc-tinyscheme.html">tiny Scheme docs</a>
+helped a bit here.</p>
+
+<p>So, I needed a list of all my files, there is probably a better way to list the files in the script-fu editor but I just did this in a text editor with some shell scripts. It seemed faster then trying to list files in gimp.</p>
+
+<pre><code class="lisp">
+(define images `("00.jpg" "07.jpg" "14.jpg" "21.jpg" "cu07.jpg" "cuqu.jpg" "pe07.jpg" "pequ.jpg" "sw06.jpg" "swpa.jpg" "wa06.jpg" "wapa.jpg" "01.jpg" "08.jpg" "15.jpg" "cu01.jpg" "cu08.jpg" "pe01.jpg" "pe08.jpg" "sw07.jpg" "swqu.jpg" "wa07.jpg" "waqu.jpg" "02.jpg" "09.jpg" "16.jpg" "cu02.jpg" "cu09.jpg" "pe02.jpg" "pe09.jpg" "sw01.jpg" "sw08.jpg" "wa01.jpg" "wa08.jpg" "03.jpg" "10.jpg" "17.jpg" "cu03.jpg" "cu10.jpg" "pe03.jpg" "pe10.jpg" "sw02.jpg" "sw09.jpg" "wa02.jpg" "wa09.jpg" "04.jpg" "11.jpg" "18.jpg" "cu04.jpg" "cuki.jpg" "pe04.jpg" "peki.jpg" "sw03.jpg" "sw10.jpg" "wa03.jpg" "wa10.jpg" "05.jpg" "12.jpg" "19.jpg" "cu05.jpg" "cukn.jpg" "pe05.jpg" "pekn.jpg" "sw04.jpg" "swki.jpg" "wa04.jpg" "waki.jpg" "06.jpg" "13.jpg" "20.jpg" "cu06.jpg" "cupa.jpg" "pe06.jpg" "pepa.jpg" "sw05.jpg" "swkn.jpg" "wa05.jpg" "wakn.jpg"))
+</code></pre>
+
+<p>I was doing this on windows and needed a full path to save. This is explicitly defined below.</p>
+
+<pre><code class="lisp">
+(define pwd "C:\\Users\\#{your directory jams}")
+</code></pre>
+
+<p>So, now I'm making a list of images with directories, this is just data munging a list of images.</p>
+
+<pre><code class="lisp">
+(define dir-images (map (lambda x (string-append pwd (car x))) images))
+</code></pre>
+
+<p>The following code is a simple manipulation function. It loads the file, does my desired gimp effects, then saves the file.</p>
+
+<pre><code class="lisp">
+(define (manipulation filename)
+  (define image (car (file-jpeg-load 1 filename filename)))
+  (define drawable (car (gimp-image-get-active-drawable image)))
+  (gimp-image-scale image 150 261)
+  (gimp-hue-saturation drawable 0 0 0 -100)
+  (gimp-brightness-contrast drawable 60 127)
+  (file-jpeg-save 1 image drawable filename filename 1 1 1 1 "love" 1 1 0 0))
+</code></pre>
+
+<p>Map that over the list of my images and we are done.</p>
+
+<pre><code class="lisp">
+(map (lambda x (manipulation (car x))) dir-images)
+</code></pre>
+
+<p>easy mode:</p>
+
+<pre><code class="lisp">
+(define pwd "C:\\Users\\#{your directory jams}")
+(define images `("00.jpg" "07.jpg" "14.jpg" "21.jpg" "cu07.jpg" "cuqu.jpg" "pe07.jpg" "pequ.jpg" "sw06.jpg" "swpa.jpg" "wa06.jpg" "wapa.jpg" "01.jpg" "08.jpg" "15.jpg" "cu01.jpg" "cu08.jpg" "pe01.jpg" "pe08.jpg" "sw07.jpg" "swqu.jpg" "wa07.jpg" "waqu.jpg" "02.jpg" "09.jpg" "16.jpg" "cu02.jpg" "cu09.jpg" "pe02.jpg" "pe09.jpg" "sw01.jpg" "sw08.jpg" "wa01.jpg" "wa08.jpg" "03.jpg" "10.jpg" "17.jpg" "cu03.jpg" "cu10.jpg" "pe03.jpg" "pe10.jpg" "sw02.jpg" "sw09.jpg" "wa02.jpg" "wa09.jpg" "04.jpg" "11.jpg" "18.jpg" "cu04.jpg" "cuki.jpg" "pe04.jpg" "peki.jpg" "sw03.jpg" "sw10.jpg" "wa03.jpg" "wa10.jpg" "05.jpg" "12.jpg" "19.jpg" "cu05.jpg" "cukn.jpg" "pe05.jpg" "pekn.jpg" "sw04.jpg" "swki.jpg" "wa04.jpg" "waki.jpg" "06.jpg" "13.jpg" "20.jpg" "cu06.jpg" "cupa.jpg" "pe06.jpg" "pepa.jpg" "sw05.jpg" "swkn.jpg" "wa05.jpg" "wakn.jpg"))
+(define dir-images (map (lambda x (string-append pwd (car x))) images))
+(define (manipulation filename) (define image (car (file-jpeg-load 0 filename filename))) (define drawable (car (gimp-image-get-active-drawable image))) (gimp-image-scale image 150 261) (gimp-hue-saturation drawable 0 0 0 -100) (gimp-brightness-contrast drawable 60 127) (file-jpeg-save 1 image drawable filename filename 1 1 1 1 "love" 1 1 0 0) #t)
+</code></pre>
+
+<h2>Now that we've cleaned up the images, lets asciify them</h2>
+
+<p>I tried out a few methods, my first approach was using web based ascii converters. I was on windows at the time. After this worked mildly well I tried out <a href="http://csl.name/jp2a/">jp2a</a> which gave better quality results. I'll document both methods.</p>
+
+<p>There are a lot of web based ascii converters, I found <a href="http://www.springfrog.com/converter/ascii-text-art/index.php">springfrog's</a> to be the best.</p>
+
+<p>This was my first use of <a href="http://phantomjs.org/download.html">phantomjs</a> which is nice piece of software. Below is a script that chugs the image into springfrogs site and prints out the ascii art.</p>
+
+<pre><code class="javascript">
+var page = require('webpage').create(),
+    system = require('system'),
+    fname;
+if (system.args.length !== 2) {
+    console.log('Usage: run.js filename');
+    phantom.exit(1);
+} else {
+    fname = system.args[1];
+    page.open("http://www.springfrog.com/converter/ascii-text-art/index.php", function () {
+        page.uploadFile('input[name=image]', fname);
+        page.evaluate(function () {
+            document.querySelector('form').submit();
+        });
+        window.setTimeout(function () {
+            var text = page.plainText;
+            var string = text.split("\n");
+            var output = [];
+            var record = false;
+            var ctr = 0;
+            for (var i in string) {
+                if (record) {
+                    if (ctr &gt;= 1) {
+                      output.push(string[i]);
+                    }
+                    if (ctr == 66) {
+                        record = false
+                    }
+                    ctr++;
+                }
+                if (string[i].indexOf("Original") != -1) {
+                    record = true;
+                }
+            }
+            for (var q in output) {
+                console.log(output[q])
+            }
+            phantom.exit();
+        }, 1500);
+    });
+}
+</code></pre>
+
+<p>I ran this script over the img directory using this simple shell script.</p>
+
+<pre><code class="sh">
+for file in `ls img/`; do phantomjs.exe run.js usr/$file &gt; ascii/$file".txt"; done;
+</code></pre>
+
+<p>This worked mildly well, but I wanted better results. Hence using <a href="http://csl.name/jp2a/">jp2a</a>.</p>
+
+<pre><code class="sh">
+for file in `ls img/`; do jp2a --invert usr/$file &gt; ascii/$file".txt"; done;
+</code>
+<br></p>
+
+<h1><em>fin.</em></h1>
+  </div>
+  </body>
+</html>

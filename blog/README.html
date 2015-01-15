@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="hljs/styles/default.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="hljs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+     .hljs {
+       padding-left: 10px;
+       padding-bottom: 10px;
+       padding-top: 0px;
+       margin-top: -5px;
+     }
+     .container {
+       padding: 10px 30px 10px 30px;
+     }
+     a:visited {
+       color: #777;
+     }
+     a:hover {
+       color: #f00;
+     }
+     a {
+       color: #222;
+       text-decoration: none;
+     }
+     body {
+      background: #f0f0f0;
+     }
+     #header {
+      width: 100%;
+      border: none;
+      top: 0px;
+      left: 0px;
+      height: 200px;
+      position: fixed;
+     }
+     #space {
+      height:200px;
+     }
+    </style>
+  </head>
+  <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $('#header').contents().find('span').remove()
+      }, 400);
+    });
+  </script>
+  <body>
+    <iframe id="header" src="http://piet.us/"></iframe>
+    <div id="space"></div>
+    <div class="container">
+<h1>Blogs</h1>
+
+<blockquote>
+  <p>This is a collection of blogs. They can viewed <a href="http://piet.us/blog">here</a>. I used my <a href="http://github.com/pietdaniel/mdtohtml">mdtohtml</a> project to generate the webpages.</p>
+</blockquote>
+  </div>
+  </body>
+</html>

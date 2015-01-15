@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="hljs/styles/default.css">
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="hljs/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <style>
+     .hljs {
+       padding-left: 10px;
+       padding-bottom: 10px;
+       padding-top: 0px;
+       margin-top: -5px;
+     }
+     .container {
+       padding: 10px 30px 10px 30px;
+     }
+     a:visited {
+       color: #777;
+     }
+     a:hover {
+       color: #f00;
+     }
+     a {
+       color: #222;
+       text-decoration: none;
+     }
+     body {
+      background: #f0f0f0;
+     }
+     #header {
+      width: 100%;
+      border: none;
+      top: 0px;
+      left: 0px;
+      height: 200px;
+      position: fixed;
+     }
+     #space {
+      height:200px;
+     }
+    </style>
+  </head>
+  <script>
+    $(document).ready(function() {
+      setInterval(function() {
+        $('#header').contents().find('span').remove()
+      }, 400);
+    });
+  </script>
+  <body>
+    <iframe id="header" src="http://piet.us/"></iframe>
+    <div id="space"></div>
+    <div class="container">
+<h1>Setting up IPython notebook,</h1>
+
+<blockquote>
+  <p>Recently I needed to do some data analysis for work. I enjoy using matplotlib and needed a solid repl to quickly run some calculations and graph the results. IPython notebook is a great solution for this. This is a quick guide on setting up IPython on linux.</p>
+</blockquote>
+
+<h2>First install Ipython</h2>
+
+<h5>Dependencies</h5>
+
+<p>When installing a few dependencies where required,</p>
+
+<ul>
+<li><a href="http://zeromq.org/">zmq</a>, a nice concurrency framework, worth looking to</li>
+<li><a href="http://www.tornadoweb.org/en/stable/">tornado</a>, web framework with long polling and websockets</li>
+<li><a href="http://jinja.pocoo.org/docs/dev/">jinja2</a>, template engine</li>
+</ul>
+
+<p>And our dependencies for graphing</p>
+
+<ul>
+<li><a href="http://matplotlib.org/">matplotlib</a>, plotting graphs <br></li>
+<li><a href="http://www.numpy.org/">numpy</a>, crunching numbers <br></li>
+</ul>
+
+<h3>Arch</h3>
+
+<pre><code class="sh">
+pacman -S ipython python-pyzmq python-tornado python-matplotlib python-numpy python-jinja
+</code></pre>
+
+<h3>Ubuntu/Debian</h3>
+
+<p>The ipython-notebook package includes dependencies</p>
+
+<pre><code class="sh">
+apt-get install ipython ipython-notebook
+</code></pre>
+
+<h2>Run the notebook</h2>
+
+<pre><code class="sh">
+ipython notebook
+</code></pre>
+
+<p>This will most likely open your default browser, the notebook can viewed at <code>localhost:8888</code> </p>
+
+<h2>graph some stuff</h2>
+
+<p>Open up a new notebook and enter the following to get started.</p>
+
+<p>First ensure inline mode is enabled</p>
+
+<pre><code class="python">
+%matplotlib inline
+</code></pre>
+
+<p>Import numpy and matplotlib</p>
+
+<pre><code class="python">
+import matplotlib.pyplot as plt
+import numpy as np
+</code></pre>
+
+<p>Make some cool graphs</p>
+
+<pre><code class="python">
+x = y = np.arange(-5,5, .1)
+xx,yy = np.meshgrid(x, y, sparse=True)
+z = np.sin(xx**7 + yy**7)
+plt.contourf(x,y,z)
+</code>
+<br>
+<br></p>
+
+<h1><em>fin.</em></h1>
+  </div>
+  </body>
+</html>

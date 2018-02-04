@@ -10,6 +10,4 @@ $(document).ready(function() {
       marginLeft:"0.0in",
     }, 400);
   });
-
-
 });

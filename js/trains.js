@@ -8,7 +8,6 @@ $(document).ready(function() {
             }
             const [direction, line, time] = ele.split(',')
 
-            // calculate time
             const now = Date.now()
             const datetime = new Date(time);
             const diff = datetime.getTime() - now;
@@ -46,9 +45,7 @@ $(document).ready(function() {
         for (ele of home) {
             homeHtml = homeHtml.concat(`<div>${ele[0]} - ${ele[1]}</div>`)
         }
-        console.log(homeHtml);
         let h = document.getElementById("home");
         h.innerHTML = homeHtml;
-
     });
 });

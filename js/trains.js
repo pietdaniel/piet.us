@@ -1,5 +1,7 @@
 $(document).ready(function() {
-    fetch("/api/trains").then(val => {
+    fetch("/api/trains")
+        .then(resp => resp.json())
+        .then(val => {
         let home = [];
         let work = [];
         for (ele of val) {

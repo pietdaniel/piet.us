@@ -1,0 +1,66 @@
+<html>
+  <head>
+    <style>
+#container {
+  padding: 7px;
+    margin-top: 20px;
+}
+
+#time {
+  padding: 2px;
+  margin-bottom: 10px;
+  margin-top: 8px;
+}
+
+body {
+  background: rgb(34, 33, 38);
+  color: white;
+  font-size: 20px;
+  font-family: sans-serif;
+}
+    </style>
+    <script type="text/javascript">
+      function display_c(){
+        var refresh=1000;
+        mytime=setTimeout('display_t()', refresh)
+      }
+
+      function display_t(){
+        let sydOptions = {
+          timeZone: 'Australia/Sydney',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        };
+
+        sydFormatter = new Intl.DateTimeFormat([], sydOptions);
+
+        let nycOptions = {
+          timeZone: 'America/New_York',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        };
+
+        nycFormatter = new Intl.DateTimeFormat([], nycOptions);
+
+        var syd = sydFormatter.format(new Date());
+        var nyc = nycFormatter.format(new Date());
+
+        document.getElementById('syd').innerHTML = syd;
+        document.getElementById('nyc').innerHTML = nyc;
+
+        display_c();
+      }
+    </script>
+
+  </head>
+  <body onload="display_t();">
+    <div id='container'>
+    <div id='time'><span id='nyc'></span> NYC</div>
+    <div id='time'><span id='syd'></span> SYD</div>
+    </div>
+  </body>
+</html>

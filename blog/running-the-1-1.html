@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Blog - Running the 1:1</title>
+    <meta name="description" content="Personal homepage for Daniel Piet">
+    <meta name="author" content="Daniel Piet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/skeleton.css">
+    <link rel="icon" type="image/jpg" href="images/favicon.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+      .spacer {
+        height: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class='spacer'></div>
+    <div class="container">
+      <div id="markdown-content"></div>
+    </div>
+    <script>
+      window.onload = function() {
+        const mdFilename = window.location.pathname.replace('.html', '.md');
+        fetch(mdFilename)
+          .then(response => response.text())
+          .then(text => {
+            const html = marked.parse(text);
+            document.getElementById('markdown-content').innerHTML = html;
+          })
+          .catch(error => {
+            console.error('There was an error fetching the Markdown file:', error);
+          });
+      }
+    </script>
+  </body>
+</html>

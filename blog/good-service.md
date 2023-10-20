@@ -5,7 +5,8 @@ Good Service Guide
 
 # Intro
 
-I'd like to discuss my criteria for measuring the quality of service.
+I'd like to discuss my criteria for measuring the quality of service. This is by no means
+a complete guide, nor all my thoughts on the topic, but just a starting point.
 
 Within any engineering organization, It's imperative that services are easy to “grok”
 at glance for any onlooker. In the event of an incident, an investigation, or even
@@ -56,6 +57,7 @@ The final tier of documentation for a service:
 # Monitoring & Observability
 
 > *“Can you understand what’s happening inside your system, just by asking questions from the outside?”*
+>
 >  -- Charity Majors
 
 As the complexity of systems increases it is critical that we can understand
@@ -81,6 +83,7 @@ of a system.
 # Development Ecosystem
 
 > *“Tools amplify your talent. The better your tools, and the better you know how to use them, the more productive you can be.”*
+>
 > -- Andrew Hunt
 
 Development ecosystems can make or break the velocity of an engineering team. The
@@ -105,6 +108,7 @@ but can increase mean time to recovery during incidents.
 # Testing
 
 > *“Write tests until fear is transformed into boredom”*
+>
 > -- Kent Beck
 
 Strong testing will build confidence in an application. Too much testing can slow development
@@ -129,6 +133,7 @@ methods. The testing pyramid should guide how we structure our tests.
 # Deployment
 
 > *“Release early. Release often. And listen to your customers.”*
+>
 > -- Eric S. Raymond
 
 Deployments should not be a scary part of development. They should be easy, painless,
@@ -147,6 +152,7 @@ and safe.
 # Code Quality
 
 > *“Gofmt’s style is no one’s favorite, yet gofmt is everyone’s favorite.”*
+>
 > -- Rob Pike
 
 Using one style consistently through a codebase lets us focus on other (more important)

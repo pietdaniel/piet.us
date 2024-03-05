@@ -3,7 +3,7 @@
     <style>
 #container {
   padding: 7px;
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 #time {
@@ -34,7 +34,6 @@ body {
           minute: '2-digit',
         };
 
-        sydFormatter = new Intl.DateTimeFormat([], sydOptions);
 
         let nycOptions = {
           timeZone: 'America/New_York',
@@ -44,13 +43,25 @@ body {
           minute: '2-digit',
         };
 
+        let seaOptions = {
+          timeZone: 'America/Vancouver',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit',
+        }
+
+        sydFormatter = new Intl.DateTimeFormat([], sydOptions);
         nycFormatter = new Intl.DateTimeFormat([], nycOptions);
+        seaFormatter = new Intl.DateTimeFormat([], seaOptions);
 
         var syd = sydFormatter.format(new Date());
         var nyc = nycFormatter.format(new Date());
+        var sea = seaFormatter.format(new Date());
 
         document.getElementById('syd').innerHTML = syd;
         document.getElementById('nyc').innerHTML = nyc;
+        document.getElementById('sea').innerHTML = sea;
 
         display_c();
       }
@@ -59,8 +70,10 @@ body {
   </head>
   <body onload="display_t();">
     <div id='container'>
-    <div id='time'><span id='nyc'></span> NYC</div>
-    <div id='time'><span id='syd'></span> SYD</div>
+      <div class='time'><span id='nyc'></span> NYC</div>
+      <div class='time'><span id='sea'></span> SEA</div>
+      <div class='time'><span id='syd'></span> SYD</div>
     </div>
   </body>
 </html>
+

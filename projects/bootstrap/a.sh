@@ -70,7 +70,7 @@ install_git() {
                 fedora)
                     sudo dnf install -y git
                     ;;
-                centos|rhel|rocky|almalinux)
+                centos|rhel|rocky|almalinux|amzn)
                     sudo yum install -y git
                     ;;
                 arch|manjaro)
